@@ -9,8 +9,8 @@ defmodule Bdds.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       compilers: [:elixir_make | Mix.compilers()],
-      make_targets: ["all"],
-      make_clean: ["clean"]
+      make_targets: make_targets(Mix.target()),
+      make_clean: make_clean(Mix.target())
     ]
   end
 
@@ -29,4 +29,10 @@ defmodule Bdds.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
+
+  defp make_targets(:host), do: ["install-dds-app"]
+  defp make_targets(_), do: ["all"]
+
+  defp make_clean(:host), do: ["clean-dds-app"]
+  defp make_clean(_), do: ["clean"]
 end
