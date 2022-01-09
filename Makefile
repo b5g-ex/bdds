@@ -60,12 +60,12 @@ $(DDS_APP_OBJ): $(DDS_APP_HEADERS) Makefile
 $(MIX_APP_OBJ_DIR)/%.o: src/ddstest/%.c
 	@echo "MIX_APP_OBJ_DIR"
 	@echo $@
-	$(CC) -c $(ERL_CFLAGS) $(CFLAGS) -o $@ $<
+	$(CC) -o $@ $< -c $(ERL_CFLAGS) $(CFLAGS)
 
 $(DDS_APP_NIF): $(DDS_APP_OBJ)
 	@echo "DDS_APP_NIF"
 	@echo $@
-	$(CC) $(LDFLAGS) -o $@ $^ $(ERL_LDFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(LDFLAGS) $(ERL_LDFLAGS) $(LIBS)
 
 $(MIX_APP_PRIV_DIR) $(MIX_APP_OBJ_DIR):
 	@mkdir -p $@
