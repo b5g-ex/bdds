@@ -18,7 +18,7 @@ DDS_SRC_DIR = src/cyclonedds
 DDS_BUILD_DIR = $(MIX_BUILD_PATH)/cyclonedds
 DDS_CMAKE = cyclonedds.cmake
 
-#================
+
 MIX_APP_PRIV_DIR = $(MIX_APP_PATH)/priv
 MIX_APP_OBJ_DIR  = $(MIX_APP_PATH)/obj
 
@@ -37,19 +37,16 @@ DDS_APP_HEADERS = $(wildcard src/ddstest/*.h)
 DDS_APP_SRC = $(wildcard src/ddstest/*.c)
 DDS_APP_OBJ = $(DDS_APP_SRC:src/ddstest/%.c=$(MIX_APP_OBJ_DIR)/%.o)
 DDS_APP_NIF = $(MIX_APP_PRIV_DIR)/ddstest_nif.so
-#================
+
 
 all: install-dds install-dds-app
-	@echo "all"
 
 install-dds-app: $(MIX_APP_PRIV_DIR) $(MIX_APP_OBJ_DIR) $(DDS_APP_NIF)
 
 install-dds: build-dds
-	@echo $@
 	@cmake --build $(DDS_BUILD_DIR) --target install
 
 build-dds:
-	@echo $@
 	@mkdir -p $(DDS_BUILD_DIR)
 	@cp src/$(DDS_CMAKE) $(DDS_BUILD_DIR)/$(DDS_CMAKE)
 	@cmake -D CMAKE_TOOLCHAIN_FILE=$(DDS_CMAKE) -S $(DDS_SRC_DIR) -B $(DDS_BUILD_DIR)
@@ -58,20 +55,15 @@ build-dds:
 $(DDS_APP_OBJ): $(DDS_APP_HEADERS) Makefile
 
 $(MIX_APP_OBJ_DIR)/%.o: src/ddstest/%.c
-	@echo "MIX_APP_OBJ_DIR"
-	@echo $@
 	$(CC) -o $@ $< -c $(ERL_CFLAGS) $(CFLAGS)
 
 $(DDS_APP_NIF): $(DDS_APP_OBJ)
-	@echo "DDS_APP_NIF"
-	@echo $@
 	$(CC) -o $@ $^ $(LDFLAGS) $(ERL_LDFLAGS) $(LIBS)
 
 $(MIX_APP_PRIV_DIR) $(MIX_APP_OBJ_DIR):
 	@mkdir -p $@
 
 clean: clean-dds clean-dds-app
-	@echo "clean"
 
 clean-dds:
 	@rm -rf $(DDS_BUILD_DIR)
