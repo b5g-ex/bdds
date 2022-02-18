@@ -57,6 +57,7 @@ install-dds: build-dds
 
 build-dds:
 	@mkdir -p $(DDS_BUILD_DIR)
+	@git submodule update -i
 	@cp src/$(DDS_CMAKE) $(DDS_BUILD_DIR)/$(DDS_CMAKE)
 	@cmake -D CMAKE_TOOLCHAIN_FILE=$(DDS_CMAKE) -S $(DDS_SRC_DIR) -B $(DDS_BUILD_DIR)
 	@cmake --build $(DDS_BUILD_DIR)
