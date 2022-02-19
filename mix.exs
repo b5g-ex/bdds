@@ -60,7 +60,8 @@ defmodule Bdds.MixProject do
         "CHANGELOG.md",
         "src/ddstest",
         "src/cyclonedds.cmake",
-        "Makefile"
+        "Makefile",
+        "LICENSE"
       ],
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => @source_url}
