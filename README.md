@@ -1,5 +1,8 @@
 # Bdds
 
+If you want to use bdds,
+**YOU FIRST NEED TO INSTALL [cyclonedds](https://github.com/eclipse-cyclonedds/cyclonedds) ON THE OS YOU WANT TO COMPILE IT ON.**
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -20,11 +23,7 @@ be found at [https://hexdocs.pm/bdds](https://hexdocs.pm/bdds).
 
 ## Use with pure Elixir Project
 
-If you want to use bdds in a pure Elixir project,
-**you first need to install [cyclonedds](https://github.com/eclipse-cyclonedds/cyclonedds)
-on the OS you want to use it on.**
-
-Then compile with env, DDS_INSTALL_DIR(=/usr/local is default) like below
+Just compile with env, DDS_INSTALL_DIR(=/usr/local is default) like below
 
 ```
 # If you installed cyclonedds to /usr/local, you don't need to specify DDS_INSTALL_DIR.
@@ -33,7 +32,7 @@ $ DDS_INSTALL_DIR=/usr mix deps.compile
 
 ## Use with Nerve Project
 
-You don't need to do nothing spetial, just install bdds by adding to deps.
+Just install bdds by adding to deps.
 Then specify `MIX_TARGET`, make firmware like below
 
 ```
