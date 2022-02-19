@@ -24,3 +24,5 @@ bdds-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+/src/cyclonedds
