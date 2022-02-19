@@ -3,6 +3,8 @@
 If you want to use bdds,
 **YOU FIRST NEED TO INSTALL [cyclonedds](https://github.com/eclipse-cyclonedds/cyclonedds) ON THE OS YOU WANT TO COMPILE IT ON.**
 
+If you are interested in the reason, read this [issue](https://github.com/b5g-ex/bdds/issues/1).
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
