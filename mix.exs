@@ -1,10 +1,14 @@
 defmodule Bdds.MixProject do
   use Mix.Project
 
+  @description """
+  Bindings for DDS
+  """
+
   @github_organization "b5g-ex"
   @app :bdds
   @source_url "https://github.com/#{@github_organization}/#{@app}"
-  @version Path.join(__DIR__, "VERSION") |> File.read!() |> String.trim()
+  @version "0.0.2"
 
   def project do
     [
@@ -12,7 +16,7 @@ defmodule Bdds.MixProject do
       version: @version,
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
-      description: description(),
+      description: @description,
       package: package(),
       deps: deps(),
       docs: docs(),
@@ -35,12 +39,6 @@ defmodule Bdds.MixProject do
       {:elixir_make, "~> 0.6", runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
-  end
-
-  defp description do
-    """
-    Bindings for DDS
-    """
   end
 
   defp docs do
