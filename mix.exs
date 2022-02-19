@@ -8,7 +8,7 @@ defmodule Bdds.MixProject do
   @github_organization "b5g-ex"
   @app :bdds
   @source_url "https://github.com/#{@github_organization}/#{@app}"
-  @version "0.0.4"
+  @version "0.0.5"
 
   def project do
     [
