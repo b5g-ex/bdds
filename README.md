@@ -32,7 +32,7 @@ Just compile with env, DDS_INSTALL_DIR(=/usr/local is default) like below
 $ DDS_INSTALL_DIR=/usr mix deps.compile
 ```
 
-## Use with Nerve Project
+## Use with Nerves Project
 
 Just install bdds by adding to deps.
 Then specify `MIX_TARGET`, make firmware like below
