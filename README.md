@@ -8,7 +8,7 @@ by adding `bdds` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:bdds, "~> 0.1.0"}
+    {:bdds, "~> 0.0.1"}
   ]
 end
 ```
