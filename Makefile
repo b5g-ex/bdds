@@ -27,10 +27,11 @@ DDS_CMAKE = cyclonedds.cmake
 
 # DDS APP
 
-DDS_APP_HEADERS = $(wildcard src/ddstest/*.h)
-DDS_APP_SRC = $(wildcard src/ddstest/*.c)
-DDS_APP_OBJ = $(DDS_APP_SRC:src/ddstest/%.c=$(MIX_APP_OBJ_DIR)/%.o)
 DDS_APP_NIF = $(MIX_APP_PRIV_DIR)/ddstest_nif.so
+DDS_APP_DIR = src/ddstest
+DDS_APP_HEADERS = $(wildcard $(DDS_APP_DIR)/*.h)
+DDS_APP_SRC = $(wildcard $(DDS_APP_DIR)/*.c)
+DDS_APP_OBJ = $(DDS_APP_SRC:$(DDS_APP_DIR)/%.c=$(MIX_APP_OBJ_DIR)/%.o)
 
 # Compile settings
 
@@ -64,7 +65,7 @@ build-dds:
 
 $(DDS_APP_OBJ): $(DDS_APP_HEADERS) Makefile
 
-$(MIX_APP_OBJ_DIR)/%.o: src/ddstest/%.c
+$(MIX_APP_OBJ_DIR)/%.o: $(DDS_APP_DIR)/%.c
 	$(CC) -o $@ $< -c $(ERL_CFLAGS) $(CFLAGS)
 
 $(DDS_APP_NIF): $(DDS_APP_OBJ)
