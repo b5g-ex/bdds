@@ -1,10 +1,5 @@
 # Bdds
 
-**YOU FIRST NEED TO INSTALL [cyclonedds](https://github.com/eclipse-cyclonedds/cyclonedds), tag: 0.9.0a1, ON THE HOST MACHINE,**
-
-even if you only want to do crosscompile for Nerves.
-
-If you are interested in the reason, read this [issue](https://github.com/b5g-ex/bdds/issues/1).
 
 ## Installation
 
@@ -26,7 +21,9 @@ be found at [https://hexdocs.pm/bdds](https://hexdocs.pm/bdds).
 
 ## Use with pure Elixir Project
 
-Just compile with env, DDS_INSTALL_DIR(=/usr/local is default) like below
+**YOU FIRST NEED TO INSTALL [cyclonedds](https://github.com/eclipse-cyclonedds/cyclonedds), tag: 0.9.1, ON YOUR HOST MACHINE.**
+
+Then compile with env, DDS_INSTALL_DIR(=/usr/local is default) like below
 
 ```
 # If you installed cyclonedds to /usr/local, you don't need to specify DDS_INSTALL_DIR.
