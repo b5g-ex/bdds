@@ -58,7 +58,7 @@ install-dds: build-dds
 
 build-dds:
 	@mkdir -p $(DDS_BUILD_DIR)
-	-@test ! -d $(DDS_SRC_DIR) && git clone https://github.com/eclipse-cyclonedds/cyclonedds.git --depth 1 --branch 0.9.0a1 $(DDS_SRC_DIR)
+	-@test ! -d $(DDS_SRC_DIR) && git clone https://github.com/eclipse-cyclonedds/cyclonedds.git --depth 1 --branch 0.9.1 $(DDS_SRC_DIR)
 	@cp src/$(DDS_CMAKE) $(DDS_BUILD_DIR)/$(DDS_CMAKE)
 	@cmake -D CMAKE_TOOLCHAIN_FILE=$(DDS_CMAKE) -S $(DDS_SRC_DIR) -B $(DDS_BUILD_DIR)
 	@cmake --build $(DDS_BUILD_DIR)
